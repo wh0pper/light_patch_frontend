@@ -1,20 +1,30 @@
+<div class="test">
+  Current state:
+    {{model.mode}}
+    {{model.brightness}}
+    {{model.on}}
+    {{model.color}}
 
-<form>
+</div>
+<form #lightStateForm="ngForm">
   <label for="mode">Select lighting mode:</label>
-  <select name="mode">
-    <option value="color_wheel">Color wheel</option>
-    <option value="wake_up">Wake up</option>
-    <option value="responsive">Music responsive</option>
-    <option value="meditate">Meditate</option>
+  <select name="mode" id="mode"
+          [(ngModel)]="model.mode">
+    <option *ngFor="let mode of modes" [value]="mode">{{mode}}</option>
   </select>
+
   <br><br>
   <label for="brightness">Brightness</label>
-  <input type="range" min="0" max="1" value=".5" step=".05">
+  <input type="number" id="brightness" min="0" max="1"
+        [(ngModel)]="model.brightness" name="brightness">
+
   <br><br>
   <label for="colors">Color</label>
-  <input type="color" value="#ff0000">
+  <input type="color" [(ngModel)]="model.color" name="color" value="#ff0000">
+
   <br><br>
-  <input type="radio" value="on">On
-  <input type="radio" value="off">Off
+  <input type="radio" [(ngModel)]="model.on" name="on" [value]="true">On
+  <input type="radio" [(ngModel)]="model.on" name="off" [value]="false">Off
+
   <button type="submit" name="button">Submit</button>
 </form>

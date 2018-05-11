@@ -9,7 +9,7 @@ export class LightStateFormComponent implements OnInit {
 
   modes = ['Color wheel', 'Wake up', 'Music responsive', 'Meditate']
 
-  model = new LightState(true, 'Color wheel', 1.0)
+  model = new LightState(true, 'Color wheel', 1.0, '#ff0000')
 
   submitted = false;
 
