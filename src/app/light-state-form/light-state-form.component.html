@@ -1,29 +1,29 @@
-<!-- <div class="test">
+<div class="test">
   Current state:
-    {{model.mode}}
-    {{model.brightness}}
-    {{model.on}}
-    {{model.color}}
-</div> -->
+    {{currentState.mode}}
+    {{currentState.brightness}}
+    {{currentState.active}}
+    {{currentState.color}}
+</div>
 <form #lightStateForm="ngForm">
   <label for="mode">Select lighting mode:</label>
   <select name="mode" id="mode"
-          [(ngModel)]="current_state.mode">
+          [(ngModel)]="currentState.mode">
     <option *ngFor="let mode of modes" [value]="mode">{{mode}}</option>
   </select>
 
   <br><br>
   <label for="brightness">Brightness</label>
   <input type="number" id="brightness" min="0" max="1"
-        [(ngModel)]="current_state.brightness" name="brightness">
+        [(ngModel)]="currentState.brightness" name="brightness">
 
   <br><br>
   <label for="colors">Color</label>
-  <input type="color" [(ngModel)]="current_state.color" name="color" value="#ff0000">
+  <input type="color" [(ngModel)]="currentState.color" name="color" value="#ff0000">
 
   <br><br>
-  <input type="radio" [(ngModel)]="current_state.on" name="on" [value]="true">On
-  <input type="radio" [(ngModel)]="current_state.on" name="off" [value]="false">Off
+  <input type="radio" [(ngModel)]="currentState.active" name="on" [value]="true">On
+  <input type="radio" [(ngModel)]="currentState.active" name="off" [value]="false">Off
 
   <button type="submit" name="button">Submit</button>
 </form>
