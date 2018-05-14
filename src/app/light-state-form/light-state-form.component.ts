@@ -9,27 +9,22 @@ import { ApiService } from '../api.service';
   styleUrls: ['./light-state-form.component.css']
 })
 export class LightStateFormComponent implements OnInit {
-  currentStateObservable;
   currentState;
   modes = ['Color wheel', 'Wake up', 'Music responsive', 'Meditate'];
-  // submitted = false;
-  //
-  // onSubmit() { this.submitted = true; }
 
   constructor(public apiService: ApiService) {
   }
 
   ngOnInit() {
-    this.currentStateObservable = this.apiService.getCurrentState();
-    this.currentStateObservable.subscribe((data) => {
-      var body = data.json();
-      this.currentState = new LightState(body.active, body.mode, body.brightness, body.color, body.id);
-    });
+    this.currentState = this.apiService.getCurrentState();
+    console.log(this.currentState);
+    // this.currentStateObservable.subscribe((data) => {
+    //   var body = data.json();
+    //   this.currentState = new LightState(body.active, body.mode, body.brightness, body.color, body.id);
+    // });
   }
 
   onSubmit() {
-    // console.log('submitted');
-    console.log(this.currentState);
     this.apiService.patchCurrentState(this.currentState);
   }
 
