@@ -1,7 +1,7 @@
 export class LightState {
 
   constructor(
-    public on: boolean,
+    public active: boolean,
     public mode: string,
     public brightness: number,
     public color: string,
