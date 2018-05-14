@@ -5,8 +5,9 @@ export class LightState {
     public mode: string,
     public brightness: number,
     public color: string,
-    public schedule?: string,
-    public timer?: number
+    public id?: number
+    // public schedule?: string,
+    // public timer?: number
   ) { }
 
 }

@@ -12,8 +12,17 @@ export class ApiService {
     return this.http.get(url);
   }
 
-  public postNewState(stateObject) {
-    var url = this.api_url + ''
+  public patchCurrentState(stateObject) {
+    var url = this.api_url + 'states/' + stateObject.id
+    console.log(url);
+    this.http.patch(url, stateObject).subscribe(
+      response => {
+        console.log(response);
+      },
+      err => {
+        console.log("Error occured");
+      }
+    );
   }
 
 }

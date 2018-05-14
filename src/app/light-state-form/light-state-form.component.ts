@@ -10,6 +10,7 @@ import { ApiService } from '../api.service';
 })
 export class LightStateFormComponent implements OnInit {
   currentStateObservable;
+  currentState;
   modes = ['Color wheel', 'Wake up', 'Music responsive', 'Meditate'];
   // submitted = false;
   //
@@ -20,14 +21,16 @@ export class LightStateFormComponent implements OnInit {
 
   ngOnInit() {
     this.currentStateObservable = this.apiService.getCurrentState();
-    this.currentStateObservable.subscribe((data) =>
+    this.currentStateObservable.subscribe((data) => {
       var body = data.json();
-      this.currentState = new LightState(body.active, body.mode, body.brightness, body.color);
-    );
+      this.currentState = new LightState(body.active, body.mode, body.brightness, body.color, body.id);
+    });
   }
 
   onSubmit() {
-    this.apiService.postNewState(this.currentState);
+    // console.log('submitted');
+    console.log(this.currentState);
+    this.apiService.patchCurrentState(this.currentState);
   }
 
 }

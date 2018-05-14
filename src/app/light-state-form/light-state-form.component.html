@@ -5,7 +5,7 @@
     {{currentState.active}}
     {{currentState.color}}
 </div>
-<form #lightStateForm="ngForm">
+<form (ngSubmit)="onSubmit()" #lightStateForm="ngForm">
   <label for="mode">Select lighting mode:</label>
   <select name="mode" id="mode"
           [(ngModel)]="currentState.mode">
