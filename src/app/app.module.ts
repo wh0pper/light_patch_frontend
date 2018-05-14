@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { LightStateFormComponent } from './light-state-form/light-state-form.component';
-
+import { ApiService } from './api.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { LightStateFormComponent } from './light-state-form/light-state-form.com
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
