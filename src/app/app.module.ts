@@ -11,7 +11,8 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatSelectModule,
-  MatOptionModule
+  MatOptionModule,
+  MatRadioModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -35,7 +36,8 @@ import { ApiService } from './api.service';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    MatRadioModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

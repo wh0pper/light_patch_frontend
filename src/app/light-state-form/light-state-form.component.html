@@ -1,10 +1,10 @@
-<div class="test">
+<mat-card>
   Current state:
     {{currentState.mode}}
     {{currentState.brightness}}
     {{currentState.active}}
     {{currentState.color}}
-</div>
+</mat-card>
 
 
 
@@ -19,17 +19,24 @@
     </mat-form-field>
 
     <br><br>
-    <label for="brightness">Brightness</label>
-    <input type="number" id="brightness" min="0" max="1"
-          [(ngModel)]="currentState.brightness" name="brightness">
+
+    <mat-form-field>
+      <mat-label for="brightness">Brightness</mat-label>
+      <input matInput type="number" id="brightness" min="0" max="1"
+            [(ngModel)]="currentState.brightness" name="brightness">
+    </mat-form-field>
 
     <br><br>
-    <label for="colors">Color</label>
-    <input type="color" [(ngModel)]="currentState.color" name="color" value="#ff0000">
+    <mat-form-field>
+      <mat-label for="colors">Color</mat-label>
+      <input matInput type="color" [(ngModel)]="currentState.color" name="color" value="#ff0000">
+    </mat-form-field>
 
     <br><br>
-    <input type="radio" [(ngModel)]="currentState.active" name="on" [value]="true">On
-    <input type="radio" [(ngModel)]="currentState.active" name="off" [value]="false">Off
+    <mat-radio-group>
+      <mat-radio-button [(ngModel)]="currentState.active" name="on" [value]="true">On</mat-radio-button>
+      <mat-radio-button [(ngModel)]="currentState.active" name="off" [value]="false">Off</mat-radio-button>
+    </mat-radio-group>
 
     <button type="submit" name="button" class="mat-raised-button">Submit</button>
   </form>
