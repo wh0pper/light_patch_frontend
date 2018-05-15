@@ -9,21 +9,21 @@ import { ApiService } from '../api.service';
   styleUrls: ['./light-state-form.component.css']
 })
 export class LightStateFormComponent implements OnInit {
-  serverStateId: number = null;
-  currentState: Observable<LightState>;
+  currentStateSubscription: Observable<LightState>;
+  currentState: LightState;
   modes = ['Color wheel', 'Wake up', 'Music responsive', 'Meditate'];
 
   constructor(public apiService: ApiService) {
   }
 
   ngOnInit() {
-    this.currentState = this.apiService.getCurrentState()
-    this.currentState.subscribe(data => this.serverStateId = data.id)
+    this.currentStateSubscription = this.apiService.getCurrentState()
+    this.currentStateSubscription.subscribe(data => this.currentState = data)
   }
 
   onSubmit() {
-    this.apiService.patchCurrentState(serverStateId, this.currentState);
     console.log(this.currentState);
+    this.apiService.patchCurrentState(this.currentState);
   }
   //
   // togglePower() {

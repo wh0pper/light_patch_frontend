@@ -6,10 +6,10 @@
 
 <mat-card>
   Current state:
-    {{(currentState | async)?.mode}}
-    {{(currentState | async)?.brightness}}
-    {{(currentState | async)?.active}}
-    {{(currentState | async)?.color}}
+    {{(currentStateSubscription | async)?.mode}}
+    {{(currentStateSubscription | async)?.brightness}}
+    {{(currentStateSubscription | async)?.active}}
+    {{(currentStateSubscription | async)?.color}}
 </mat-card>
 
  <form (ngSubmit)="onSubmit()" #lightStateForm="ngForm">

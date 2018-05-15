@@ -20,7 +20,7 @@ export class ApiService {
     return this.http.get(url);
   }
 
-  public patchCurrentState(stateObservable) {
+  public patchCurrentState(stateObject) {
     var url = this.api_url + 'states/' + stateObject.id
     console.log(url);
     this.http.patch(url, stateObject).subscribe(
