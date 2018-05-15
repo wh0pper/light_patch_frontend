@@ -1,13 +1,13 @@
-export class LightState {
+export interace LightState {
 
-  constructor(
-    public active: boolean,
-    public mode: string,
-    public brightness: number,
-    public color: string,
-    public id?: number
+  // constructor(
+    active: boolean;
+    mode: string;
+    brightness: number;
+    color: string;
+    id?: number;
     // public schedule?: string,
     // public timer?: number
-  ) { }
+  // ) { }
 
 }

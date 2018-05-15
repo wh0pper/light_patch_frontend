@@ -10,10 +10,9 @@ export class ApiService {
 
   constructor(public http: HttpClient) { }
 
-  public getCurrentState(): Observable<LightState> {
+  public getCurrentState() {
     var url = this.api_url + 'active_state';
-    return this.http.get(url).map(
-      response => response as LightState);
+    return this.http.get<LightState>(url)
   }
 
   public getSavedConfigurations() {
@@ -21,7 +20,7 @@ export class ApiService {
     return this.http.get(url);
   }
 
-  public patchCurrentState(stateObject) {
+  public patchCurrentState(stateObservable) {
     var url = this.api_url + 'states/' + stateObject.id
     console.log(url);
     this.http.patch(url, stateObject).subscribe(
