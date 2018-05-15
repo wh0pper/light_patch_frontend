@@ -1,5 +1,5 @@
 <mat-card>
-  <mat-slide-toggle>
+  <mat-slide-toggle (change)="togglePower()" [(ngModel)]="currentState.active">
     ON/OFF
   </mat-slide-toggle>
 </mat-card>

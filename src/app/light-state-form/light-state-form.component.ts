@@ -25,9 +25,11 @@ export class LightStateFormComponent implements OnInit {
     console.log(this.currentState);
     this.apiService.patchCurrentState(this.currentState);
   }
-  //
-  // togglePower() {
-  //   this.apiService.patchCurrentState(this.currentState);
-  // }
+
+  togglePower() {
+    let updates = {id: this.currentState.id, active: this.currentState.active}
+    console.log(updates.active);
+    this.apiService.patchCurrentState(updates);
+  }
 
 }
