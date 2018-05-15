@@ -18,16 +18,11 @@ export class LightStateFormComponent implements OnInit {
 
   ngOnInit() {
     this.currentState = this.apiService.getCurrentState()
-      // active: data['active'],
-      // mode: data['mode'],
-      // brightness: data['brightness'],
-      // color: data['color'],
-      // id: data['id']
-    console.log(this.currentState);
+    this.currentState.subscribe(data => this.serverStateId = data.id)
   }
 
   onSubmit() {
-    // this.apiService.patchCurrentState(this.currentState);
+    this.apiService.patchCurrentState(serverStateId, this.currentState);
     console.log(this.currentState);
   }
   //
