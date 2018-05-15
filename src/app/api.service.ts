@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { LightState } from './models/light-state.model';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ApiService {
@@ -7,17 +10,10 @@ export class ApiService {
 
   constructor(public http: HttpClient) { }
 
-  public getCurrentState() {
+  public getCurrentState(): Observable<LightState> {
     var url = this.api_url + 'active_state';
-    return this.http.get(url).subscribe(
-      response => {
-        console.log(response);
-        return response;
-      },
-      error => {
-        console.log("Error occured");
-      }
-    );
+    return this.http.get(url).map(
+      response => response as LightState);
   }
 
   public getSavedConfigurations() {

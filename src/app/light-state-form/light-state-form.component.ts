@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Observable } from 'rxjs/Observable';
 import { LightState } from '../models/light-state.model';
 import { ApiService } from '../api.service';
 
@@ -9,7 +9,7 @@ import { ApiService } from '../api.service';
   styleUrls: ['./light-state-form.component.css']
 })
 export class LightStateFormComponent implements OnInit {
-  currentState;
+  currentState: Observable<LightState>;
   modes = ['Color wheel', 'Wake up', 'Music responsive', 'Meditate'];
 
   constructor(public apiService: ApiService) {
@@ -17,15 +17,14 @@ export class LightStateFormComponent implements OnInit {
 
   ngOnInit() {
     this.currentState = this.apiService.getCurrentState();
-    console.log(this.currentState);
-    // this.currentStateObservable.subscribe((data) => {
-    //   var body = data.json();
-    //   this.currentState = new LightState(body.active, body.mode, body.brightness, body.color, body.id);
-    // });
   }
-
-  onSubmit() {
-    this.apiService.patchCurrentState(this.currentState);
-  }
+  //
+  // onSubmit() {
+  //   this.apiService.patchCurrentState(this.currentState);
+  // }
+  //
+  // togglePower() {
+  //   this.apiService.patchCurrentState(this.currentState);
+  // }
 
 }
