@@ -5,6 +5,19 @@
     <h3>Welcome to Light-Patch</h3>
   </mat-toolbar>
 
-  <app-light-state-form></app-light-state-form>
+  <mat-card>
+    <mat-slide-toggle>
+      ON/OFF
+    </mat-slide-toggle>
+  </mat-card>
+
+  <mat-tab-group>
+    <mat-tab label="Custom Config">
+      <app-light-state-form></app-light-state-form>
+    </mat-tab>
+    <mat-tab label="Saved Configs">
+      <h1>Saved configs will go here</h1>
+    </mat-tab>
+  </mat-tab-group>
 
 </div>
