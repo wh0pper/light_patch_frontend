@@ -22,8 +22,9 @@
 
     <mat-form-field>
       <mat-label for="brightness">Brightness</mat-label>
-      <input matInput type="number" id="brightness" min="0" max="1"
+      <mat-slider id="brightness" min="0" max="1"
             [(ngModel)]="currentState.brightness" name="brightness">
+      </mat-slider>
     </mat-form-field>
 
     <br><br>
