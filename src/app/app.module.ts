@@ -8,13 +8,11 @@ import { CustomMaterialModule } from './custom-material.module';
 import { AppComponent } from './app.component';
 import { LightStateFormComponent } from './light-state-form/light-state-form.component';
 import { ApiService } from './api.service';
-import { PowerToggleComponent } from './power-toggle/power-toggle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LightStateFormComponent,
-    PowerToggleComponent
+    LightStateFormComponent
   ],
   imports: [
     BrowserModule,
