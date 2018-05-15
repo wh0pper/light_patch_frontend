@@ -6,13 +6,17 @@
     {{currentState.color}}
 </div>
 
-<div class="uk-card">
+
+
+
   <form (ngSubmit)="onSubmit()" #lightStateForm="ngForm">
-    <label for="mode">Select lighting mode:</label>
-    <select name="mode" id="mode"
-            [(ngModel)]="currentState.mode">
-      <option *ngFor="let mode of modes" [value]="mode">{{mode}}</option>
-    </select>
+    <mat-form-field>
+      <mat-label for="mode">Select lighting mode:</mat-label>
+      <mat-select name="mode" id="mode"
+              [(ngModel)]="currentState.mode">
+        <mat-option *ngFor="let mode of modes" [value]="mode">{{mode}}</mat-option>
+      </mat-select>
+    </mat-form-field>
 
     <br><br>
     <label for="brightness">Brightness</label>
@@ -27,6 +31,5 @@
     <input type="radio" [(ngModel)]="currentState.active" name="on" [value]="true">On
     <input type="radio" [(ngModel)]="currentState.active" name="off" [value]="false">Off
 
-    <button type="submit" name="button">Submit</button>
+    <button type="submit" name="button" class="mat-raised-button">Submit</button>
   </form>
-</div>
