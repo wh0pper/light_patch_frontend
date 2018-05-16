@@ -1,3 +1,9 @@
-<p>
-  config-menu works!
-</p>
+<mat-grid-list cols="2" rowHeight="1:1">
+  <mat-grid-tile *ngFor="let config of configs" [style.background-color]="formatColor(config)">{{config.name}}
+
+    <div [style.color]="formatColor(config)">
+      {{formatColor(config)}}
+    </div>
+
+      </mat-grid-tile>
+</mat-grid-list>
