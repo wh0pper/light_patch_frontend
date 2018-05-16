@@ -11,7 +11,7 @@ import { ApiService } from '../api.service';
 export class LightStateFormComponent implements OnInit {
   currentStateSubscription: Observable<LightState>;
   currentState: LightState;
-  modes = ['Color wheel', 'Wake up', 'Music responsive', 'Meditate'];
+  modes = ['transition', 'pulse', 'blink', 'solid', 'responsive'];
 
   constructor(public apiService: ApiService) {
   }

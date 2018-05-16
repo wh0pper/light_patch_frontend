@@ -5,11 +5,19 @@
 </mat-card>
 
 <mat-card>
-  Active state:
-    {{(currentStateSubscription | async)?.mode}}
-    {{(currentStateSubscription | async)?.brightness}}
-    {{(currentStateSubscription | async)?.active}}
-    {{(currentStateSubscription | async)?.color}}
+  <mat-card-title>
+    Current configuration:
+    {{(currentStateSubscription | async)?.name}}
+  </mat-card-title>
+  <mat-card-subtitle>
+    Properties:
+  </mat-card-subtitle>
+  <mat-card-content>
+      Mode: {{(currentStateSubscription | async)?.mode}} <br>
+      Brightness: {{(currentStateSubscription | async)?.brightness}}/1 <br>
+      Active: {{(currentStateSubscription | async)?.active}} <br>
+      Color: {{(currentStateSubscription | async)?.color}} <br>
+  </mat-card-content>
 </mat-card>
 <hr>
 <mat-card>
