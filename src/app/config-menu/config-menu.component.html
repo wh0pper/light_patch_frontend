@@ -1,9 +1,13 @@
 <mat-grid-list cols="2" rowHeight="1:1">
-  <mat-grid-tile *ngFor="let config of configs" [style.background-color]="formatColor(config)">{{config.name}}
 
-    <div [style.color]="formatColor(config)">
-      {{formatColor(config)}}
-    </div>
-
-      </mat-grid-tile>
+  <mat-grid-tile *ngFor="let config of configs">
+    <button mat-raised-button class="config-button">
+      <span [style.color]="formatColor(config)">{{config.name}}</span>
+    </button>
+    <!-- <div class="swatch" -->
+  </mat-grid-tile>
 </mat-grid-list>
+<br>
+<mat-divider></mat-divider>
+<br>
+<button mat-raised-button layout-align="center" color="accent" name="transmit">Transmit Selected</button>
