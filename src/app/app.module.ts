@@ -8,11 +8,13 @@ import { CustomMaterialModule } from './custom-material.module';
 import { AppComponent } from './app.component';
 import { LightStateFormComponent } from './light-state-form/light-state-form.component';
 import { ApiService } from './api.service';
+import { ConfigMenuComponent } from './config-menu/config-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LightStateFormComponent
+    LightStateFormComponent,
+    ConfigMenuComponent
   ],
   imports: [
     BrowserModule,
