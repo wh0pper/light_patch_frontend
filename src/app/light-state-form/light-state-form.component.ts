@@ -9,27 +9,29 @@ import { ApiService } from '../api.service';
   styleUrls: ['./light-state-form.component.css']
 })
 export class LightStateFormComponent implements OnInit {
-  currentStateSubscription: Observable<LightState>;
-  currentState: LightState;
-  modes = ['transition', 'pulse', 'blink', 'solid', 'responsive'];
+  currentStateObservable: Observable<LightState>;
 
   constructor(public apiService: ApiService) {
   }
 
   ngOnInit() {
-    this.currentStateSubscription = this.apiService.getCurrentState()
-    this.currentStateSubscription.subscribe(data => this.currentState = data)
+    this.currentStateObservable = this.apiService.getCurrentState()
+    // this.currentStateSubscription.subscribe(data => this.currentState = data)
   }
 
   onSubmit() {
-    console.log(this.currentState);
-    this.apiService.patchCurrentState(this.currentState);
+    console.log(this.currentStateObservable);
+    this.currentStateObservable.subscribe(data => {
+      console.log(data);
+      this.apiService.patchCurrentState(data);
+    )};
   }
 
-  togglePower() {
-    let updates = {id: this.currentState.id, active: this.currentState.active}
-    console.log(updates.active);
+  let togglePower() {
+    let updates = {'id': this.currentState.id, 'active': this.currentState.active};
+    console.log(this.currentStateObservable);
     this.apiService.patchCurrentState(updates);
   }
+
 
 }

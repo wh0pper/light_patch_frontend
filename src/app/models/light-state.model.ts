@@ -1,4 +1,4 @@
-export interace LightState {
+export interface LightState {
 
   // constructor(
     active: boolean;

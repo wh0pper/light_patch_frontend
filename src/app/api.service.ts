@@ -22,15 +22,27 @@ export class ApiService {
 
   public patchCurrentState(stateObject) {
     var url = this.api_url + 'states/' + stateObject.id
-    console.log(url);
     this.http.patch(url, stateObject).subscribe(
       response => {
         console.log(response);
       },
       err => {
-        console.log("Error occured");
+        console.log("Error occured updating state");
       }
     );
+  }
+
+  public createNewState(stateObject) {
+    console.log(stateObject);
+    var url = this.api_url + 'states';
+    return this.http.post(url, stateObject).subscribe(
+      response => {
+        console.log(response);
+      },
+      err => {
+        console.log("Error occurred creating state")
+      }
+    )
   }
 
 }

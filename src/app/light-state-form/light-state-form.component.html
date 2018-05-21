@@ -1,51 +1,20 @@
 <mat-card>
-  <mat-slide-toggle (change)="togglePower()" [(ngModel)]="currentState.active">
+  <mat-slide-toggle (change)="togglePower()" [(ngModel)]="currentStateObservable.active">
     ON/OFF
   </mat-slide-toggle>
 </mat-card>
 
-<mat-card>
-  <mat-card-title>
-    Current configuration:
-    {{(currentStateSubscription | async)?.name}}
-  </mat-card-title>
-  <mat-card-subtitle>
-    Properties:
-  </mat-card-subtitle>
-  <mat-card-content>
-      Mode: {{(currentStateSubscription | async)?.mode}} <br>
-      Brightness: {{(currentStateSubscription | async)?.brightness}}/1 <br>
-      Active: {{(currentStateSubscription | async)?.active}} <br>
-      Color: {{(currentStateSubscription | async)?.color}} <br>
-  </mat-card-content>
-</mat-card>
 <hr>
 <mat-card>
   <form (ngSubmit)="onSubmit()" #lightStateForm="ngForm">
-    <h4>Change configuration:</h4>
-    <mat-form-field>
-      <mat-label for="mode">Select lighting mode:</mat-label>
-      <mat-select name="mode" id="mode"
-              [(ngModel)]="currentState.mode">
-        <mat-option *ngFor="let mode of modes" [value]="mode">{{mode}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <br><br>
-
-    <mat-label for="brightness">Brightness</mat-label>
-    <mat-slider id="brightness" min="0" max="1" step="0.1"
-          [(ngModel)]="currentState.brightness" name="brightness">
-    </mat-slider>
 
     <br><br>
     <mat-form-field>
-      <mat-label for="colors">Color</mat-label>
-      <input matInput type="color" [(ngModel)]="currentState.color" name="color" value="#ff0000">
+      <mat-label for="color">Color</mat-label>
+      <input matInput type="color" [(ngModel)]="currentStateObservable.color" name="color" value="#ff0000">
     </mat-form-field>
 
     <br><br>
     <button mat-button type="submit" name="button">Send</button>
-    <button mat-button name="save">Save</button>
   </form>
 </mat-card>
