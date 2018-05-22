@@ -9,29 +9,36 @@ import { ApiService } from '../api.service';
   styleUrls: ['./light-state-form.component.css']
 })
 export class LightStateFormComponent implements OnInit {
-  currentStateObservable: Observable<LightState>;
+  currentStateObservable: Observable<any>;
+  currentStateId: number;
 
   constructor(public apiService: ApiService) {
   }
 
   ngOnInit() {
     this.currentStateObservable = this.apiService.getCurrentState()
-    // this.currentStateSubscription.subscribe(data => this.currentState = data)
-  }
-
-  onSubmit() {
-    console.log(this.currentStateObservable);
     this.currentStateObservable.subscribe(data => {
-      console.log(data);
-      this.apiService.patchCurrentState(data);
-    )};
+      this.currentStateId = data.id;
+    });
   }
 
-  let togglePower() {
-    let updates = {'id': this.currentState.id, 'active': this.currentState.active};
-    console.log(this.currentStateObservable);
-    this.apiService.patchCurrentState(updates);
+  // onSubmit(newColor) {
+    // this.currentStateObservable.subscribe(data => {
+    //   console.log(data);
+    //   this.apiService.patchCurrentState(data);
+    // });
+  // }
+
+  submitForm(newColor) {
+    let formattedColor = newColor.replace(/#/, '0x')
+    this.apiService.patchCurrentState(this.currentStateId, formattedColor);
   }
+
+  // togglePower() {
+  //   let updates = {'id': this.currentState.id, 'active': this.currentState.active};
+  //   console.log(this.currentStateObservable);
+  //   this.apiService.patchCurrentState(updates);
+  // }
 
 
 }

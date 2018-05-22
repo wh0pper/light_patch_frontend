@@ -12,7 +12,7 @@ export class ApiService {
 
   public getCurrentState() {
     var url = this.api_url + 'active_state';
-    return this.http.get<LightState>(url)
+    return this.http.get(url)
   }
 
   public getSavedConfigurations() {
@@ -20,16 +20,25 @@ export class ApiService {
     return this.http.get(url);
   }
 
-  public patchCurrentState(stateObject) {
-    var url = this.api_url + 'states/' + stateObject.id
-    this.http.patch(url, stateObject).subscribe(
+  public patchCurrentState(stateId, color) {
+    console.log(stateId, color);
+    var url = this.api_url + 'states/' + stateId;
+    this.http.patch(url, {'color': color}).subscribe(
       response => {
         console.log(response);
       },
       err => {
-        console.log("Error occured updating state");
+        console.log("Error occured in patch request");
       }
-    );
+    )
+    // this.http.patch(url, stateObject).subscribe(
+    //   response => {
+    //     console.log(response);
+    //   },
+    //   err => {
+    //     console.log("Error occured updating state");
+    //   }
+    // );
   }
 
   public createNewState(stateObject) {
