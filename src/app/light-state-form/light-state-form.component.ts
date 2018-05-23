@@ -11,6 +11,7 @@ import { ApiService } from '../api.service';
 export class LightStateFormComponent implements OnInit {
   currentStateObservable: Observable<any>;
   currentStateId: number;
+  modes = ['solid','blink'];
 
   constructor(public apiService: ApiService) {
   }
@@ -22,16 +23,9 @@ export class LightStateFormComponent implements OnInit {
     });
   }
 
-  // onSubmit(newColor) {
-    // this.currentStateObservable.subscribe(data => {
-    //   console.log(data);
-    //   this.apiService.patchCurrentState(data);
-    // });
-  // }
-
-  submitForm(newColor) {
+  submitForm(newColor, newMode) {
     let formattedColor = newColor.replace(/#/, '0x')
-    this.apiService.patchCurrentState(this.currentStateId, formattedColor);
+    this.apiService.patchCurrentState(this.currentStateId, formattedColor, newMode);
   }
 
   // togglePower() {

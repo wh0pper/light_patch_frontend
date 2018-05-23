@@ -8,6 +8,13 @@
 <mat-card>
   <form (ngSubmit)="onSubmit()" #lightStateForm="ngForm">
 
+    <mat-form-field>
+      <mat-label for="mode">Select lighting mode:</mat-label>
+      <mat-select #newMode name="mode" id="mode">
+        <mat-option *ngFor="let mode of modes" [value]="mode">{{mode}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <br><br>
     <mat-form-field>
       <mat-label for="color">Color</mat-label>
@@ -15,6 +22,6 @@
     </mat-form-field>
 
     <br><br>
-    <button mat-button type="button" (click)="submitForm(newColor.value)">Send</button>
+    <button mat-button type="button" (click)="submitForm(newColor.value, newMode.value)">Send</button>
   </form>
 </mat-card>

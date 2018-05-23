@@ -20,10 +20,9 @@ export class ApiService {
     return this.http.get(url);
   }
 
-  public patchCurrentState(stateId, color) {
-    console.log(stateId, color);
+  public patchCurrentState(stateId, color, mode) {
     var url = this.api_url + 'states/' + stateId;
-    this.http.patch(url, {'color': color}).subscribe(
+    this.http.patch(url, {'color': color, 'mode': mode}).subscribe(
       response => {
         console.log(response);
       },
@@ -31,27 +30,19 @@ export class ApiService {
         console.log("Error occured in patch request");
       }
     )
-    // this.http.patch(url, stateObject).subscribe(
-    //   response => {
-    //     console.log(response);
-    //   },
-    //   err => {
-    //     console.log("Error occured updating state");
-    //   }
-    // );
   }
 
-  public createNewState(stateObject) {
-    console.log(stateObject);
-    var url = this.api_url + 'states';
-    return this.http.post(url, stateObject).subscribe(
-      response => {
-        console.log(response);
-      },
-      err => {
-        console.log("Error occurred creating state")
-      }
-    )
-  }
+  // public createNewState(stateObject) {
+  //   console.log(stateObject);
+  //   var url = this.api_url + 'states';
+  //   return this.http.post(url, stateObject).subscribe(
+  //     response => {
+  //       console.log(response);
+  //     },
+  //     err => {
+  //       console.log("Error occurred creating state")
+  //     }
+  //   )
+  // }
 
 }
