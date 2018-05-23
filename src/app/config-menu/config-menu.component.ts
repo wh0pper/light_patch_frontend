@@ -9,7 +9,7 @@ import { LightState } from '../models/light-state.model';
   styleUrls: ['./config-menu.component.css']
 })
 export class ConfigMenuComponent implements OnInit {
-  configs: LightState[];
+  configs;
 
   constructor(public api: ApiService) { }
 

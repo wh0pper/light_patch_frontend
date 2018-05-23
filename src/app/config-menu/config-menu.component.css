@@ -1,4 +1,14 @@
+.menu-container {
+  max-width: 450px;
+}
+
 .config-button {
   width: 100%;
+  max-width: 200px;
   height: 100%;
+  max-height: 100px;
+}
+
+#config-send {
+  width: 100%;
 }

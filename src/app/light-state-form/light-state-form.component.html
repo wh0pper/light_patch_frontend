@@ -23,6 +23,14 @@
 <mat-card>
   <form (ngSubmit)="onSubmit()" #lightStateForm="ngForm">
     <h4>Change configuration:</h4>
+
+    <mat-form-field>
+      <mat-label for="name">Name:</mat-label>
+      <input matInput type="text" [(ngModel)]="currentState.name" name="name">
+    </mat-form-field>
+
+    <br><br>
+
     <mat-form-field>
       <mat-label for="mode">Select lighting mode:</mat-label>
       <mat-select name="mode" id="mode"
