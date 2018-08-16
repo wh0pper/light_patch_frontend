@@ -7,12 +7,14 @@ import { CustomMaterialModule } from './custom-material.module';
 
 import { AppComponent } from './app.component';
 import { LightStateFormComponent } from './light-state-form/light-state-form.component';
+import { ConfigMenuComponent } from './config-menu/config-menu.component';
 import { ApiService } from './api.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LightStateFormComponent
+    LightStateFormComponent,
+	ConfigMenuComponent
   ],
   imports: [
     BrowserModule,
