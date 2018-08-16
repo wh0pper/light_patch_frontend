@@ -21,7 +21,7 @@ export class ApiService {
   }
 
   public patchCurrentState(stateId, color, mode) {
-    var url = this.api_url + 'states/' + stateId;
+    var url = this.api_url + 'send_values';
     this.http.patch(url, {'color': color, 'mode': mode}).subscribe(
       response => {
         console.log(response);
