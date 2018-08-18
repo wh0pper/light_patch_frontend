@@ -11,7 +11,7 @@ import { ApiService } from '../api.service';
 export class LightStateFormComponent implements OnInit {
   currentStateObservable: Observable<any>;
   currentStateId: number;
-  modes = ['solid', 'blink'];
+  modes = ['solid', 'blink', 'pulse'];
 
   constructor(public apiService: ApiService) {
   }
