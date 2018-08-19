@@ -23,9 +23,9 @@ export class LightStateFormComponent implements OnInit {
     });
   }
 
-  submitForm(newColor, newMode) {
+  submitForm(newColor, newMode, newBrightness) {
     let formattedColor = newColor.replace(/#/, '0x')
-    this.apiService.patchCurrentState(this.currentStateId, formattedColor, newMode);
+    this.apiService.patchCurrentState(this.currentStateId, formattedColor, newMode, newBrightness);
   }
 
   // togglePower() {

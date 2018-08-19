@@ -20,9 +20,9 @@ export class ApiService {
     return this.http.get(url);
   }
 
-  public patchCurrentState(stateId, color, mode) {
+  public patchCurrentState(stateId, color, mode, brightness) {
     var url = this.api_url + 'send_values';
-    this.http.patch(url, {'color': color, 'mode': mode}).subscribe(
+    this.http.patch(url, {'color': color, 'mode': mode, 'brightness': brightness }).subscribe(
       response => {
         console.log(response);
       },
