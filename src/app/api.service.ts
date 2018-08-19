@@ -32,6 +32,11 @@ export class ApiService {
     )
   }
 
+  public turnOff() {
+    var url = this.api_url + 'states';
+    this.http.delete(url);
+  }
+
   // public createNewState(stateObject) {
   //   console.log(stateObject);
   //   var url = this.api_url + 'states';
